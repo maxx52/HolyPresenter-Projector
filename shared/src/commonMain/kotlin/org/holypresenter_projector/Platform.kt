@@ -1,0 +1,7 @@
+package org.holypresenter_projector
+
+interface Platform {
+    val name: String
+}
+
+expect fun getPlatform(): Platform
