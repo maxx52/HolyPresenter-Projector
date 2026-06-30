@@ -1,4 +1,4 @@
-package org.holypresenter.projector
+package org.holypresenter_projector
 
 import androidx.compose.runtime.Composable
 import holypresenter.org.platform.api.module.HolyModule
