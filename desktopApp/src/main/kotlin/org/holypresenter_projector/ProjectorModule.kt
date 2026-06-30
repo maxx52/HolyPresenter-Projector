@@ -4,9 +4,12 @@ import androidx.compose.runtime.Composable
 import holypresenter.org.platform.api.module.HolyModule
 import holypresenter.org.platform.api.module.ModuleContext
 import holypresenter.org.platform.api.module.ModuleMetadata
+import org.holypresenter_projector.services.DefaultProjectionService
+import org.holypresenter_projector.services.ProjectionService
 import org.holypresenter_projector.workspace.ProjectorWorkspace
 
 class ProjectorModule : HolyModule {
+    private val defaultProjectionService = DefaultProjectionService()
 
     override val metadata = ModuleMetadata(
         id = "projector",
@@ -18,11 +21,18 @@ class ProjectorModule : HolyModule {
     )
 
     override fun onLoad(context: ModuleContext) {
+        context.services.register(
+            ProjectionService::class,
+            defaultProjectionService
+        )
+
         println("ProjectorModule loaded")
     }
 
     @Composable
     override fun Workspace() {
-        ProjectorWorkspace()
+        ProjectorWorkspace(
+            projectionService = defaultProjectionService
+        )
     }
 }
