@@ -1,9 +1,11 @@
 package org.holypresenter_projector.services
 
-import org.holypresenter_projector.model.ProjectorContent
+import holypresenter.org.platform.api.presentation.Presentation
 
 interface ProjectionService {
-    val currentContent: ProjectorContent
-    fun show(content: ProjectorContent)
+    val currentPresentation: Presentation?
+
+    fun present(presentation: Presentation)
+
     fun clear()
 }

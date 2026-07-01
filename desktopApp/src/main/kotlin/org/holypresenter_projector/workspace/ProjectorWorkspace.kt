@@ -9,11 +9,13 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import org.holypresenter_projector.model.ProjectorContent
+import org.holypresenter_projector.controller.ProjectorController
+import org.holypresenter_projector.render.ProjectorRenderer
 import org.holypresenter_projector.services.ProjectionService
 
 @Composable
 fun ProjectorWorkspace(
+    controller: ProjectorController,
     projectionService: ProjectionService
 ) {
     var text by remember { mutableStateOf("") }
@@ -33,9 +35,7 @@ fun ProjectorWorkspace(
 
         Button(
             onClick = {
-                projectionService.show(
-                    ProjectorContent.Text(text)
-                )
+                controller.presentText(text)
             }
         ) {
             Text("Показать")
@@ -45,7 +45,7 @@ fun ProjectorWorkspace(
 
         Button(
             onClick = {
-                projectionService.clear()
+                controller.clear()
             }
         ) {
             Text("Очистить")
@@ -55,9 +55,8 @@ fun ProjectorWorkspace(
 
         Text("Предпросмотр:")
 
-        when (val content = projectionService.currentContent) {
-            ProjectorContent.Empty -> Text("Пусто")
-            is ProjectorContent.Text -> Text(content.value)
-        }
+        ProjectorRenderer(
+            presentation = projectionService.currentPresentation
+        )
     }
 }

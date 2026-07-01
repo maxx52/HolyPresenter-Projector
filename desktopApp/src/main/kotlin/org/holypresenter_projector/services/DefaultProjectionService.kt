@@ -3,19 +3,17 @@ package org.holypresenter_projector.services
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
-import org.holypresenter_projector.model.ProjectorContent
+import holypresenter.org.platform.api.presentation.Presentation
 
 class DefaultProjectionService : ProjectionService {
-    override var currentContent by mutableStateOf<ProjectorContent>(
-        ProjectorContent.Empty
-    )
+    override var currentPresentation by mutableStateOf<Presentation?>(null)
         private set
 
-    override fun show(content: ProjectorContent) {
-        currentContent = content
+    override fun present(presentation: Presentation) {
+        currentPresentation = presentation
     }
 
     override fun clear() {
-        currentContent = ProjectorContent.Empty
+        currentPresentation = null
     }
 }
