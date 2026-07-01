@@ -15,7 +15,7 @@ fun TextElementView(
 ) {
     Box(
         modifier = Modifier.fillMaxSize(),
-        contentAlignment = Alignment.Center
+        contentAlignment = SlotDefaults.alignment(element.slot)
     ) {
         Text(element.text)
     }
