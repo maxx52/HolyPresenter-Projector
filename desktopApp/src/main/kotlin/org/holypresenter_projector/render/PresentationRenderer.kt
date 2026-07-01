@@ -4,13 +4,15 @@ import androidx.compose.runtime.Composable
 import holypresenter.org.platform.api.presentation.Presentation
 
 @Composable
-fun ProjectorRenderer(
-    presentation: Presentation?
+fun PresentationRenderer(
+    presentation: Presentation
 ) {
-    if (presentation == null) {
+    val slide = presentation.slides.firstOrNull()
+
+    if (slide == null) {
         EmptyContentView()
         return
     }
 
-    PresentationRenderer(presentation)
+    SlideRenderer(slide)
 }
