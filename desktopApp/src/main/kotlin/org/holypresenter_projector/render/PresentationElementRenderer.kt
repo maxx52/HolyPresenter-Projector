@@ -9,6 +9,6 @@ fun PresentationElementRenderer(
     element: PresentationElement
 ) {
     when (element) {
-        is TextElement -> TextContentView(element.text)
+        is TextElement -> TextElementView(element)
     }
 }

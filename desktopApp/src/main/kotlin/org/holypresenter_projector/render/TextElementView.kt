@@ -7,14 +7,16 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 
+import holypresenter.org.platform.api.presentation.element.TextElement
+
 @Composable
-fun TextContentView(
-    text: String
+fun TextElementView(
+    element: TextElement
 ) {
     Box(
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center
     ) {
-        Text(text)
+        Text(element.text)
     }
 }
