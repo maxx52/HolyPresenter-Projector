@@ -1,16 +1,16 @@
 package org.holypresenter_projector.render
 
 import androidx.compose.runtime.Composable
-import holypresenter.org.platform.api.presentation.Presentation
+import holypresenter.org.platform.api.presentation.PresentationSlide
 
 @Composable
 fun ProjectorRenderer(
-    presentation: Presentation?
+    slide: PresentationSlide?
 ) {
-    if (presentation == null) {
+    if (slide == null) {
         EmptyContentView()
         return
     }
 
-    PresentationRenderer(presentation)
+    SlideRenderer(slide)
 }

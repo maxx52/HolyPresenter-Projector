@@ -56,7 +56,31 @@ fun ProjectorWorkspace(
         Text("Предпросмотр:")
 
         ProjectorRenderer(
-            presentation = projectionService.currentPresentation
+            slide = projectionService.currentSlide
+        )
+
+        Button(
+            onClick = {
+                controller.previous()
+            }
+        ) {
+            Text("Назад")
+        }
+
+        Button(
+            onClick = {
+                controller.next()
+            }
+        ) {
+            Text("Далее")
+        }
+
+        Spacer(Modifier.height(16.dp))
+
+        Text(
+            text = "Слайд: ${projectionService.currentSlideIndex + 1} / ${
+                projectionService.currentPresentation?.slides?.size ?: 0
+            }"
         )
     }
 }

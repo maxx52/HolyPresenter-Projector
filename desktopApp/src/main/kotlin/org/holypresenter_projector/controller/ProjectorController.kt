@@ -37,4 +37,16 @@ class ProjectorController(
             )
         )
     }
+
+    fun next() {
+        projectionService.next()
+    }
+
+    fun previous() {
+        projectionService.previous()
+    }
+
+    fun goTo(index: Int) {
+        projectionService.goTo(index)
+    }
 }
