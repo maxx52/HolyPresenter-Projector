@@ -9,9 +9,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import holypresenter.org.platform.api.projection.ProjectionService
 import org.holypresenter_projector.controller.ProjectorController
 import org.holypresenter_projector.render.ProjectorRenderer
-import org.holypresenter_projector.services.ProjectionService
 
 @Composable
 fun ProjectorWorkspace(

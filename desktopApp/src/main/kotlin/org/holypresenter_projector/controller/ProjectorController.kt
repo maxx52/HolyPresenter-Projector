@@ -4,7 +4,7 @@ import holypresenter.org.platform.api.presentation.Presentation
 import holypresenter.org.platform.api.presentation.PresentationSlide
 import holypresenter.org.platform.api.presentation.SlotId
 import holypresenter.org.platform.api.presentation.element.TextElement
-import org.holypresenter_projector.services.ProjectionService
+import holypresenter.org.platform.api.projection.ProjectionService
 import java.util.UUID
 
 class ProjectorController(

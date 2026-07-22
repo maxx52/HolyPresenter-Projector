@@ -5,6 +5,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import holypresenter.org.platform.api.presentation.Presentation
 import holypresenter.org.platform.api.presentation.PresentationSlide
+import holypresenter.org.platform.api.projection.ProjectionService
 
 class DefaultProjectionService : ProjectionService {
     override var currentPresentation by mutableStateOf<Presentation?>(null)

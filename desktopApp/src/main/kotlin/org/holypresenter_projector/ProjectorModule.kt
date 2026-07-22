@@ -8,6 +8,7 @@ import holypresenter.org.platform.api.presentation.Presentation
 import holypresenter.org.platform.api.presentation.PresentationSlide
 import holypresenter.org.platform.api.presentation.SlotId
 import holypresenter.org.platform.api.presentation.element.TextElement
+import holypresenter.org.platform.api.projection.ProjectionService
 import org.holypresenter_projector.services.DefaultProjectionService
 import org.holypresenter_projector.workspace.ProjectorWorkspace
 import org.holypresenter_projector.commands.ShowTextCommand
@@ -27,27 +28,10 @@ class ProjectorModule : HolyModule {
     )
 
     override fun onLoad(context: ModuleContext) {
-        context.commands.register(
-            commandName = "projector.showText"
-        ) { command: ShowTextCommand ->
-            defaultProjectionService.present(
-                Presentation(
-                    id = "command-presentation",
-                    slides = listOf(
-                        PresentationSlide(
-                            id = "slide-1",
-                            elements = listOf(
-                                TextElement(
-                                    id = "text-1",
-                                    slot = SlotId("lyrics"),
-                                    text = command.text
-                                )
-                            )
-                        )
-                    )
-                )
-            )
-        }
+        context.services.register(
+            ProjectionService::class,
+            defaultProjectionService
+        )
 
         println("ProjectorModule loaded")
     }
